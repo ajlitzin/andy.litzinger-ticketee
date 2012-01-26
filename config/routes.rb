@@ -51,7 +51,9 @@ Ticketee::Application.routes.draw do
    #root :to => 'projects#index'
   root to: 'projects#index'
 
-  resources :projects
+  resources :projects do
+    resources :tickets
+  end
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
