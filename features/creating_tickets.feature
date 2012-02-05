@@ -5,17 +5,13 @@ I want to be able to select a project and do that
 
 Background:
   Given there is a project called "Internet Explorer"
-  And there are the following users:
+  Given there are the following users:
   | email		| password	|
   | user@ticketee.com	| password	|
-  And I am on the homepage
+  And "user@ticketee.com" can view the "Internet Explorer" project
+  And I am signed in as them
   When I follow "Internet Explorer"
   And I follow "New Ticket"
-  Then I should see "You need to sign in or sign up before continuing."
-  When I fill in "Email" with "user@ticketee.com"
-  When I fill in "Password" with "password"
-  And I press "Sign in"
-  Then I should see "New Ticket"
 
 Scenario: Creating a ticket
   When I fill in "Title" with "Non-standards compliance"
