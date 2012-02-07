@@ -22,6 +22,7 @@ describe TicketsController do
         response.should redirect_to(project)
         flash[:alert].should eql("You cannot create tickets on this project.")
       end
+
       def cannot_update_tickets!
         response.should redirect_to(project)
         flash[:alert].should eql("You cannot edit tickets on this project.")
@@ -40,6 +41,12 @@ describe TicketsController do
       it "cannot update a ticket without permission" do
         put :update, { project_id: project.id, id: ticket.id, ticket: {} }
         cannot_update_tickets!
+      end
+ 
+      it "cannot delete a ticket without permission" do
+        delete :destroy, { project_id: project.id, id: ticket.id }
+        response.should redirect_to(project)
+        flash[:alert].should eql("You cannot delete tickets from this project.")
       end
     end
   end
