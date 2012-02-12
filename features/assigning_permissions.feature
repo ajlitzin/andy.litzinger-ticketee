@@ -35,6 +35,7 @@ Scenario: Creating tickets for a project
   When I check "Create tickets" for "TextMate 2"
   And I press "Update"
   And I follow "Sign out"
+
   Given I am signed in as "user@ticketee.com"
   When I follow "TextMate 2"
   And I follow "New Ticket"
@@ -62,6 +63,7 @@ Scenario: Deleting a ticket for a project
   And I check "Delete Tickets" for "TextMate 2"
   And I press "Update"
   And I follow "Sign out"
+
   Given I am signed in as "user@ticketee.com"
   When I follow "TextMate 2"
   And I follow "Shiny!"
