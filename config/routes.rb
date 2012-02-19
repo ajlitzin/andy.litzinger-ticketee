@@ -69,6 +69,11 @@ Ticketee::Application.routes.draw do
 
   resources :tickets do
     resources :comments
+    resources :tags do
+      member do
+        delete :remove
+      end
+    end
   end
   # See how all your routes lay out with "rake routes"
 
