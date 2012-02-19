@@ -18,10 +18,14 @@ class ProjectsController < ApplicationController
       render action: "new"
     end
   end
+
   def show
+    @tickets = @project.tickets
   end
+
   def edit
   end
+
   def update
     if @project.update_attributes(params[:project])
       flash[:notice] = "Project has been updated."
